@@ -1,0 +1,37 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 10001,
+      "username": "admin",
+      "gender": "男",
+      "phone": "19100001111",
+      "email": "admin@base.com",
+      "role": {
+        "title": "超级管理员"
+      }
+    },
+    {
+      "id": 10002,
+      "username": "2022678010111",
+      "gender": "男",
+      "phone": "19100002222",
+      "email": "2022678010111@base.com",
+      "role": {
+        "title": "学生"
+      }
+    },
+    {
+      "id": 10003,
+      "username": "666777",
+      "gender": "女",
+      "phone": "19100002222",
+      "email": "2022678010111@base.com",
+      "role": {
+        "title": "教师"
+      }
+    }
+  ]
+}

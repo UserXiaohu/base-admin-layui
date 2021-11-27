@@ -124,7 +124,6 @@
                     <div id="layuiminiHomeTabIframe" class="layui-tab-item layui-show"></div>
                 </div>
             </div>
-
         </div>
     </div>
     <script src="/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
@@ -140,7 +139,7 @@
                 iniUrl: "/api/init.json",    // 初始化接口
                 clearUrl: "/api/clear.json", // 缓存清理接口
                 urlHashLocation: false,      // 是否打开hash定位
-                bgColorDefault: true,      // 主题默认配置
+                bgColorDefault: false,      // 主题默认配置
                 multiModule: false,          // 是否开启多模块
                 menuChildOpen: false,       // 是否默认展开菜单
                 loadingTime: 0,             // 初始化加载时间

@@ -139,7 +139,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <input type="checkbox" name="rememberMe" value="true" lay-skin="primary" title="记住密码">
+                        <input type="checkbox" name="remember-me" value="true" lay-skin="primary" title="记住密码">
                     </div>
                     <div class="layui-form-item">
                         <input type="submit" class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" value="登录"/>

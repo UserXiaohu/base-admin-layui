@@ -52,12 +52,15 @@ public class User implements Serializable, UserDetails {
      */
     private String avatar;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Role> role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        for (Role r:role){
+            authorities.add(new SimpleGrantedAuthority(r.getName()));
+        }
         return authorities;
     }
 

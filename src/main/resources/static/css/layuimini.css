@@ -1,3 +1,6 @@
+.layui-layout-admin .layui-body {
+    padding-bottom: 0;
+}
 /**
 配色方案（如有需要，请自行配置）
  */

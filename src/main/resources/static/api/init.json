@@ -1,14 +1,47 @@
 {
   "homeInfo": {
-    "title": "首页",
-    "href": "page/welcome-1.html?t=1"
+    "title": "系统首页",
+    "href": "/home"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
+    "title": "Base Admin",
     "image": "images/logo.png",
     "href": ""
   },
   "menuInfo": [
+    {
+      "title": "系统首页",
+      "icon": "fa fa-address-book",
+      "href": "/home",
+      "target": "_self",
+      "child": []
+    },
+    {
+      "title": "系统管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "菜单管理",
+          "icon": "fa fa-address-book",
+          "href": "/menu",
+          "target": "_self"
+        },
+        {
+          "title": "角色管理",
+          "icon": "fa fa-address-book",
+          "href": "/role",
+          "target": "_self"
+        },
+        {
+          "title": "用户管理",
+          "icon": "fa fa-address-book",
+          "href": "/user",
+          "target": "_self"
+        }
+      ]
+    },
     {
       "title": "常规管理",
       "icon": "fa fa-address-book",

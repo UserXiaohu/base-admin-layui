@@ -1,0 +1,31 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 10001,
+      "title": "超级管理员",
+      "name": "admin",
+      "remark": "超级管理员"
+    },
+    {
+      "id": 10002,
+      "title": "学生",
+      "name": "student",
+      "remark": "学生"
+    },
+    {
+      "id": 10003,
+      "title": "教师",
+      "name": "teacher",
+      "remark": "教师"
+    },
+    {
+      "id": 10004,
+      "title": "访客",
+      "name": "guest",
+      "remark": "访客"
+    }
+  ]
+}

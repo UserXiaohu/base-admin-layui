@@ -32,9 +32,9 @@ public class PageController {
 	 *
 	 * @return 页面
 	 */
-	@GetMapping("/dashboard")
-	public String dashboard() {
-		return "system/dashboard";
+	@GetMapping("/home")
+	public String home() {
+		return "home";
 	}
 
 	/**
