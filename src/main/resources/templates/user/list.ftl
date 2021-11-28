@@ -75,7 +75,7 @@
 
             table.render({
                 elem: '#currentTableId',
-                url: '/api/user.json',
+                url: '/user/list',
                 toolbar: '#toolbarDemo',
                 defaultToolbar: ['filter', 'exports', 'print', {
                     title: '提示',
@@ -91,13 +91,15 @@
                     {field: 'email', title: '邮箱'},
                     {
                         field: 'role', title: '角色', templet: function (user) {
-                            return user.role.title;
+                            var text = "";
+                            for (var i = 0; i < user.role.length; i++) {
+                                text += user.role[i].title + " ";
+                            }
+                            return text;
                         }
                     },
                     {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
                 ]],
-                limits: [10, 15, 20, 25, 50, 100],
-                limit: 15,
                 page: true,
                 skin: 'line'
             });

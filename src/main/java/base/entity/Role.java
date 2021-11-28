@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +25,10 @@ public class Role implements Serializable {
     /**
      * 角色名称
      */
+    private String title;
+    /**
+     * 角色标识
+     */
     private String name;
     /**
      * 角色备注
@@ -33,5 +36,5 @@ public class Role implements Serializable {
     private String remark;
 
     @OneToMany
-    List<Menu> menu = new ArrayList<>();
+    List<Menu> menu;
 }

@@ -5,24 +5,24 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import javax.persistence.*;
 
 /**
  * 系统用户表(User)实体类
  *
  * @author hui
- * @date 2021-07-29 09:07:17
+ * @date 2021-11-27 11:16:08
  */
 @Data
 @Entity
 public class User implements Serializable, UserDetails {
-    private static final long serialVersionUID = 297021621177516659L;
+    private static final long serialVersionUID = 175948153612960901L;
     /**
-     * 主键ID，自增
+     * 用户ID
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,10 +47,6 @@ public class User implements Serializable, UserDetails {
      * 电子邮箱
      */
     private String email;
-    /**
-     * 用户头像
-     */
-    private String avatar;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Role> role;
@@ -58,7 +54,7 @@ public class User implements Serializable, UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (Role r:role){
+        for (Role r : role) {
             authorities.add(new SimpleGrantedAuthority(r.getName()));
         }
         return authorities;
@@ -83,4 +79,6 @@ public class User implements Serializable, UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
+

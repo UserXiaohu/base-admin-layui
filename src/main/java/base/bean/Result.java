@@ -25,7 +25,7 @@ public class Result {
     /**
      * 表格数据总条数
      */
-    private Integer count;
+    private Long count;
 
     public Result(RetCode retCode) {
         this.code = retCode.getCode();
@@ -38,7 +38,7 @@ public class Result {
         this.data = data;
     }
 
-    public Result(RetCode retCode, Object data, Integer count) {
+    public Result(RetCode retCode, Object data, Long count) {
         this.code = retCode.getCode();
         this.msg = retCode.getMsg();
         this.data = data;

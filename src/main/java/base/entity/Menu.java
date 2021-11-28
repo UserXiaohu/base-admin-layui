@@ -1,11 +1,9 @@
 package base.entity;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +31,7 @@ public class Menu implements Serializable {
      */
     private String title;
     /**
-     * 菜单路径
+     * 菜单地址
      */
     private String href;
     /**
@@ -42,5 +40,5 @@ public class Menu implements Serializable {
     private String icon;
 
     @Transient
-    private List<Menu> child = new ArrayList<>();
+    private List<Menu> child;
 }
