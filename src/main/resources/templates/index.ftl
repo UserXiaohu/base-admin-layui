@@ -138,7 +138,7 @@
             var options = {
                 iniUrl: "/api/init.json",    // 初始化接口
                 clearUrl: "/api/clear.json", // 缓存清理接口
-                urlHashLocation: false,      // 是否打开hash定位
+                urlHashLocation: true,      // 是否打开hash定位
                 bgColorDefault: false,      // 主题默认配置
                 multiModule: false,          // 是否开启多模块
                 menuChildOpen: false,       // 是否默认展开菜单

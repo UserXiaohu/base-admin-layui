@@ -15,6 +15,7 @@ public enum RetCode {
     /**
      * 统一返回值枚举常量
      */
+    USER_GET_SUCCESS(1001, "查询用户"),
     USER_SAVE_SUCCESS(1002, "添加/修改用户"),
     USER_DELETE_SUCCESS(1003, "删除用户"),
     ROLE_SAVE_SUCCESS(1002, "添加/修改角色"),

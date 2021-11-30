@@ -12,41 +12,22 @@
 <body>
     <div class="layuimini-container">
         <div class="layuimini-main">
-
             <fieldset class="table-search-fieldset">
                 <legend>搜索信息</legend>
-                <div style="margin: 10px 10px 10px 10px">
-                    <form class="layui-form layui-form-pane" action="">
+                <div style="margin: 10px">
+                    <div class="layui-form layui-form-pane">
                         <div class="layui-form-item">
                             <div class="layui-inline">
-                                <label class="layui-form-label">用户姓名</label>
+                                <label class="layui-form-label">用户名</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="username" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-inline">
-                                <label class="layui-form-label">用户性别</label>
-                                <div class="layui-input-inline">
-                                    <input type="text" name="sex" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-inline">
-                                <label class="layui-form-label">用户城市</label>
-                                <div class="layui-input-inline">
-                                    <input type="text" name="city" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-inline">
-                                <label class="layui-form-label">用户职业</label>
-                                <div class="layui-input-inline">
-                                    <input type="text" name="classify" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-inline">
                                 <button type="submit" class="layui-btn layui-btn-primary" lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </fieldset>
 
@@ -91,11 +72,7 @@
                     {field: 'email', title: '邮箱'},
                     {
                         field: 'role', title: '角色', templet: function (user) {
-                            var text = "";
-                            for (var i = 0; i < user.role.length; i++) {
-                                text += user.role[i].title + " ";
-                            }
-                            return text;
+                            return user.role.title;
                         }
                     },
                     {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
@@ -135,8 +112,8 @@
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
-                        area: ['100%', '100%'],
-                        content: '/page/table/add.html',
+                        area: ['700px', '600px'],
+                        content: '/user/add',
                     });
                     $(window).on("resize", function () {
                         layer.full(index);
@@ -163,8 +140,8 @@
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
-                        area: ['100%', '100%'],
-                        content: '/page/table/edit.html',
+                        area: ['700px', '600px'],
+                        content: '/user/edit?id=' + data.id,
                     });
                     $(window).on("resize", function () {
                         layer.full(index);
@@ -172,8 +149,18 @@
                     return false;
                 } else if (obj.event === 'delete') {
                     layer.confirm('真的删除行么', function (index) {
-                        obj.del();
-                        layer.close(index);
+                        $.ajax({
+                            url: "/user/delete",
+                            type: "delete",
+                            data: {
+                                id: data.id
+                            },
+                            success: function (res) {
+                                console.log(res)
+                                obj.del();
+                                layer.close(index);
+                            }
+                        })
                     });
                 }
             });

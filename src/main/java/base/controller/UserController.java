@@ -4,14 +4,11 @@ import base.bean.Result;
 import base.bean.RetCode;
 import base.dao.UserDao;
 import base.entity.User;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -46,6 +43,19 @@ public class UserController {
     }
 
     /**
+     * 根据ID查询用户
+     *
+     * @param id 用户ID
+     * @return 统一返回值JSON
+     */
+    @GetMapping("/get")
+    public Result get(Integer id) {
+        User user = userDao.getById(id);
+        System.out.println(user);
+        return new Result(RetCode.USER_GET_SUCCESS, user);
+    }
+
+    /**
      * 添加/修改用户
      *
      * @param user User对象
@@ -53,8 +63,11 @@ public class UserController {
      */
     @PostMapping("/save")
     public Result save(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String password = passwordEncoder.encode(user.getPassword());
+        user.setPassword(password);
         userDao.save(user);
-        return new Result(RetCode.OK);
+        return new Result(RetCode.USER_SAVE_SUCCESS);
     }
 
     /**
@@ -63,7 +76,7 @@ public class UserController {
      * @param id 用户ID
      * @return 统一返回值JSON
      */
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public Result delete(Integer id) {
         userDao.deleteById(id);
         return new Result(RetCode.OK);

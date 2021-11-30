@@ -48,15 +48,16 @@ public class User implements Serializable, UserDetails {
      */
     private String email;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Role> role;
+    @OneToOne
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (Role r : role) {
-            authorities.add(new SimpleGrantedAuthority(r.getName()));
-        }
+        authorities.add(new SimpleGrantedAuthority(role.getName()));
         return authorities;
     }
 
